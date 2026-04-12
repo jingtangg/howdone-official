@@ -1,73 +1,77 @@
-# Welcome to your Lovable project
+# HOWDONE 官方網站
 
-## Project info
+> HOW DONE, WELL DONE — 系統整合 × 軟體開發 × 資安服務
 
-**URL**: https://lovable.dev/projects/aaeb936d-d199-4585-9225-8156a79ac8d9
+HOWDONE 的響應式企業官方網站，涵蓋服務介紹、專案流程、FAQ 與聯絡資訊。
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## Tech Stack
 
-**Use Lovable**
+| 類別 | 技術 |
+|------|------|
+| 框架 | React 18 + TypeScript |
+| 建置工具 | Vite |
+| 樣式 | Tailwind CSS |
+| UI 元件 | shadcn/ui (Radix UI) |
+| 路由 | React Router DOM v6 |
+| 部署 | Vercel |
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/aaeb936d-d199-4585-9225-8156a79ac8d9) and start prompting.
+## 頁面結構
 
-Changes made via Lovable will be committed automatically to this repo.
+單頁應用（SPA），包含以下區塊：
 
-**Use your preferred IDE**
+- **Hero** — 首屏，含動態粒子背景與 CTA
+- **關於我們** — 公司介紹
+- **服務項目** — 客製化軟體開發 / 網路設備與資安 / AI 智能科技 / 其他服務
+- **專案流程** — 專案執行步驟說明
+- **常見問題** — FAQ 手風琴展開
+- **聯絡我們** — 透過 mailto 發信
+- **Footer** — 版權資訊
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+## 本地開發
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+# 安裝依賴
+npm install
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# 啟動開發伺服器（port 8080）
 npm run dev
+
+# 建置 production
+npm run build
+
+# 預覽 production build
+npm run preview
 ```
 
-**Edit a file directly in GitHub**
+## 部署
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+本專案部署於 **Vercel**，推送至 `main` 分支即自動觸發部署。
 
-**Use GitHub Codespaces**
+手動部署：
+```sh
+vercel --prod
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## 專案結構
 
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/aaeb936d-d199-4585-9225-8156a79ac8d9) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+```
+src/
+├── assets/          # 靜態圖片
+├── components/      # 各頁面區塊組件
+│   ├── Navigation.tsx
+│   ├── Hero.tsx
+│   ├── About.tsx
+│   ├── Services.tsx
+│   ├── Process.tsx
+│   ├── FAQ.tsx
+│   ├── Contact.tsx
+│   ├── Footer.tsx
+│   └── ui/          # shadcn/ui 基礎元件
+├── pages/
+│   ├── Index.tsx    # 主頁（組合所有區塊）
+│   └── NotFound.tsx
+└── lib/
+    └── utils.ts
+```
